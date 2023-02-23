@@ -1,0 +1,146 @@
+*
+    box-sizing: border-box
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    padding: 0
+    margin: 0
+body
+    width: 100%
+    height: 100vh
+
+main
+    display: flex
+    position: relative
+    width: 100%
+    height: 100vh
+    overflow: hidden
+    picture
+        position: absolute
+        width: 100%
+        height: 100%
+        position: relative
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+    .counter
+        width: 100%
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: row
+        position: absolute
+        text-transform: uppercase
+        gap: 20px
+        button
+            width: 200px
+            height: 40px
+            border-radius: 15px
+            box-shadow: 20px 20px 50px rgba(0 ,0 , 0,0.5 )
+            background: rgba(255, 255, 255,0.1 )
+            border: none
+            border-top: 1px solid rgba(255,255 ,255 ,0.5 )
+            border-bottom: 1px solid rgba(255,255 ,255 ,0.5 )
+            backdrop-filter: blur(5px)
+            outline: none
+        .box
+            position: relative
+            width: 200px
+            height: 150px
+            display: flex
+            justify-content: center
+            align-items: center
+            font-family: 'Cabin', sans-serif
+            font-weight: 500
+            display: flex
+            flex-direction: column
+            user-select: none
+            .top
+                height: 50%
+                width: 100%
+                box-shadow: 20px 20px 50px rgba(0 ,0 , 0,0.5 )
+                background: rgba(255, 255, 255,0.5 )
+                border-top: 1px solid rgba(255,255 ,255 ,0.5 )
+                border-bottom: 1px solid rgba(255,255 ,255 ,0.5 )
+                backdrop-filter: blur(5px)
+                border-radius: 15px
+                display: flex
+                justify-content: center
+                align-items: center
+                transition: all .5s
+                span
+                    font-size: 1.5em
+                    color: red
+            .bottom
+                height: 50%
+                width: 100%
+                box-shadow: 20px 20px 50px rgba(0 ,0 , 0,0.5 )
+                background: rgba(255, 255, 255,0.1 )
+                border-top: 1px solid rgba(255,255 ,255 ,0.5 )
+                border-bottom: 1px solid rgba(255,255 ,255 ,0.5 )
+                backdrop-filter: blur(5px)
+                border-radius: 15px
+                display: flex
+                justify-content: center
+                align-items: center
+                span
+                    color: gray
+@media (max-width:767px)
+    main
+        position: relative
+        width: 100%
+        height: 100vh
+        overflow: hidden
+        .counter
+            padding: 1rem 0
+            width: 100%
+            height: 100%
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-direction: column
+            position: absolute
+            text-transform: uppercase
+            gap: 20px
+            .box
+                position: relative
+                width: 200px
+                height: 150px
+                display: flex
+                justify-content: center
+                align-items: center
+                font-family: 'Cabin', sans-serif
+                font-weight: 500
+                display: flex
+                flex-direction: column
+                .top
+                    height: 50%
+                    width: 100%
+                    box-shadow: 20px 20px 50px rgba(0 ,0 , 0,0.5 )
+                    background: rgba(255, 255, 255,0.5 )
+                    border-top: 1px solid rgba(255,255 ,255 ,0.5 )
+                    border-bottom: 1px solid rgba(255,255 ,255 ,0.5 )
+                    backdrop-filter: blur(5px)
+                    border-radius: 15px
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    transition: all .5s
+                    span
+                        font-size: 1.5em
+                        color: red
+                .bottom
+                    height: 50%
+                    width: 100%
+                    box-shadow: 20px 20px 50px rgba(0 ,0 , 0,0.5 )
+                    background: rgba(255, 255, 255,0.1 )
+                    border-top: 1px solid rgba(255,255 ,255 ,0.5 )
+                    border-bottom: 1px solid rgba(255,255 ,255 ,0.5 )
+                    backdrop-filter: blur(5px)
+                    border-radius: 15px
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    span
+                        color: gray

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <picture>
+        <img src="./back-ground-desktop.jpg" />
+      </picture>
+      <div class="counter">
+        <button onclick="play()">Play</button>
+        <button onclick="pause()">Pause</button>
+        <div class="box">
+          <div class="top">
+            <span class="number" id="day">00</span>
+          </div>
+          <div class="bottom">
+            <span>day</span>
+          </div>
+        </div>
+        <div class="box">
+          <div class="top">
+            <span class="number" id="hours">00</span>
+          </div>
+          <div class="bottom">
+            <span>hours</span>
+          </div>
+        </div>
+        <div class="box">
+          <div class="top">
+            <span class="number" id="minutes">00</span>
+          </div>
+          <div class="bottom">
+            <span>minutes</span>
+          </div>
+        </div>
+        <div class="box">
+          <div class="top">
+            <span class="number" id="seconds">00</span>
+          </div>
+          <div class="bottom">
+            <span>seconds</span>
+          </div>
+        </div>
+      </div>
+      <audio loop src="./1.mp3" alt="mp3"></audio>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
+<script>
+  let arr = ["1.mp3", "2.mp3", "3.mp3"];
+  function play() {
+    let number = Math.floor(Math.random() * arr.length);
+    document.querySelector("audio").setAttribute("src", arr[number]);
+    document.querySelector("audio").play();
+  }
+  function pause() {
+    document.querySelector("audio").pause();
+  }
+  if (window.innerWidth <= 767) {
+    document
+      .querySelector("main picture img")
+      .setAttribute("src", "./back-ground-mobile.jpg");
+  } else {
+    document
+      .querySelector("main picture img")
+      .setAttribute("src", "./back-ground-desktop.jpg");
+  }
+  var dateTarget = new Date("Feb 27, 2023 00:00:00").getTime();
+  var timer = setInterval(function () {
+    var now = new Date().getTime();
+    var diff = dateTarget - now;
+    // day
+    document.getElementById("day").innerHTML = Math.floor(
+      diff / (1000 * 60 * 60 * 24)
+    );
+    if (document.getElementById("day").textContent.length <= 1) {
+      document.getElementById("day").textContent =
+        "0" + Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.querySelectorAll(".top")[0].style.cssText =
+        " background: rgba(255, 255, 255,0.1 ); transition: all .5s";
+      document.querySelectorAll(".bottom")[0].style.cssText =
+        " background: rgba(255, 255, 255,0.5 ); transition: all .5s";
+    } else {
+      document.querySelectorAll(".top")[0].style.cssText =
+        " background: rgba(255, 255, 255,0.5 ); transition: all .5s";
+      document.querySelectorAll(".bottom")[0].style.cssText =
+        " background: rgba(255, 255, 255,0.1 ); transition: all .5s";
+    }
+    //  hours
+    document.getElementById("hours").innerHTML = Math.floor(
+      (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    if (document.getElementById("hours").textContent.length <= 1) {
+      document.getElementById("hours").textContent =
+        "0" + Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.querySelectorAll(".top")[1].style.cssText =
+        " background: rgba(255, 255, 255,0.1 ); transition: all .5s";
+      document.querySelectorAll(".bottom")[1].style.cssText =
+        " background: rgba(255, 255, 255,0.5 ); transition: all .5s";
+    } else {
+      document.querySelectorAll(".top")[1].style.cssText =
+        " background: rgba(255, 255, 255,0.5 ); transition: all .5s";
+      document.querySelectorAll(".bottom")[1].style.cssText =
+        " background: rgba(255, 255, 255,0.1 ); transition: all .5s";
+    }
+    // minutes
+    document.getElementById("minutes").innerHTML = Math.floor(
+      (diff % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    if (document.getElementById("minutes").textContent.length <= 1) {
+      document.getElementById("minutes").textContent =
+        "0" + Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      document.querySelectorAll(".top")[2].style.cssText =
+        " background: rgba(255, 255, 255,0.1 ); transition: all .5s";
+      document.querySelectorAll(".bottom")[2].style.cssText =
+        " background: rgba(255, 255, 255,0.5 ); transition: all .5s";
+    } else {
+      document.querySelectorAll(".top")[2].style.cssText =
+        " background: rgba(255, 255, 255,0.5 ); transition: all .5s";
+      document.querySelectorAll(".bottom")[2].style.cssText =
+        " background: rgba(255, 255, 255,0.1 ); transition: all .5s";
+    }
+    // seconds
+    document.getElementById("seconds").innerHTML = Math.floor(
+      (diff % (1000 * 60)) / 1000
+    );
+    if (document.getElementById("seconds").textContent.length <= 1) {
+      document.getElementById("seconds").textContent =
+        "0" + Math.floor((diff % (1000 * 60)) / 1000);
+      document.querySelectorAll(".top")[3].style.cssText =
+        " background: rgba(255, 255, 255,0.1 ); transition: all .5s";
+      document.querySelectorAll(".bottom")[3].style.cssText =
+        " background: rgba(255, 255, 255,0.5 ); transition: all .5s";
+    } else {
+      document.querySelectorAll(".top")[3].style.cssText =
+        " background: rgba(255, 255, 255,0.5 ); transition: all .5s";
+      document.querySelectorAll(".bottom")[3].style.cssText =
+        " background: rgba(255, 255, 255,0.1 ); transition: all .5s";
+    }
+    if (
+      Math.floor(diff / (1000 * 60 * 60 * 24)) <= 0 &&
+      Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) <= 0 &&
+      Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)) <= 0 &&
+      Math.floor((diff % (1000 * 60)) / 1000) <= 0
+    ) {
+      clearInterval(timer);
+      document.getElementById("day").textContent = "00";
+      document.getElementById("hours").textContent = "00";
+      document.getElementById("minutes").textContent = "00";
+      document.getElementById("seconds").textContent = "00";
+      window.Swal.fire("Happy Birth Day");
+    }
+  }, 1000);
+</script>
